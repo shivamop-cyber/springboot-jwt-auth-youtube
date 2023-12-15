@@ -2,6 +2,7 @@ package com.shivam.jwtAuthentication.entity;
 
 
 import com.shivam.jwtAuthentication.utils.enums.Role;
+import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,6 +27,7 @@ public class User implements UserDetails {
     private Integer id;
     private String firstName;
     private String lastName;
+    @Column(unique = true, nullable = false)
     private String email;
     private String password;
 

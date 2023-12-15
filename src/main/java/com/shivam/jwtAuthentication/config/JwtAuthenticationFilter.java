@@ -21,8 +21,6 @@ import java.io.IOException;
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
-    @Autowired
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
@@ -59,8 +57,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
                 SecurityContextHolder.getContext().setAuthentication(authenticationToken);
             }
-        } else {
-            filterChain.doFilter(request, response);
         }
+        filterChain.doFilter(request, response);
     }
 }
